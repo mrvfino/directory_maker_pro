@@ -12,17 +12,10 @@ import { getUser } from "@/lib/firebase/getUser";
 import { Loader2 } from "lucide-react";
 
 export default function SignInButton() {
-  if (typeof window == "undefined") {
-    return (
-      <Button className="hidden flex-row md:flex" size="lg" disabled={true}>
-        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-        {"Loading"}
-      </Button>
-    );
-  }
-
   const user = getUser();
-  const pendingLogin = !user && localStorage.getItem("login") == "pending";
+  const pendingLogin =
+    typeof window == "undefined" ||
+    (!user && localStorage.getItem("login") == "pending");
 
   const onClickHandler = async () => {
     if (user?.email) {
