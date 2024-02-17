@@ -10,11 +10,11 @@ interface NavigationBarProps {
 export default function NavigationBar({ items }: NavigationBarProps) {
   return (
     <div className="fixed left-0 right-0 top-0 m-8 flex flex-col gap-4 md:flex-row md:justify-between">
-      <div className="flex flex-col gap-4 md:flex-row md:gap-12">
+      <div className="flex flex-col gap-4 md:flex-row">
         <h1 className="text-foreground text-center text-3xl font-bold md:text-4xl">
           Directory Maker Pro
         </h1>
-        <nav className="bg-background flex flex-row justify-center gap-6">
+        <nav className="bg-background flex flex-row justify-center gap-6 px-8">
           {items?.map((item, index) => (
             <Link
               key={index}
@@ -30,8 +30,8 @@ export default function NavigationBar({ items }: NavigationBarProps) {
           ))}
         </nav>
       </div>
-      <Button className="hidden md:block" size="lg">
-        Try Now
+      <Button className="hidden md:block " size="lg">
+        Sign In with Google
       </Button>
     </div>
   );

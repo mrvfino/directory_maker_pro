@@ -11,12 +11,12 @@ export const navigationConfig: NavigationConfig = {
       href: "/#demo",
     },
     {
-      title: "Community",
+      title: "Reviews",
       href: "/#community",
     },
     {
       title: "FAQs",
-      href: "/#demo",
+      href: "/#faq",
     },
   ],
 };
