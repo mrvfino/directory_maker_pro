@@ -2,20 +2,18 @@
 
 import { auth } from "@/lib/firebase/firebase";
 import { Button } from "./ui/button";
-import {
-  GoogleAuthProvider,
-  getRedirectResult,
-  signInWithRedirect,
-  signOut,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithRedirect, signOut } from "firebase/auth";
 import { getUser } from "@/lib/firebase/getUser";
 import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function SignInButton() {
   const user = getUser();
-  const pendingLogin =
-    typeof window == "undefined" ||
-    (!user && localStorage.getItem("login") == "pending");
+  const [pending, setPending] = useState(true);
+
+  useEffect(() => {
+    setPending(!user && localStorage.getItem("login") == "pending");
+  }, [user]);
 
   const onClickHandler = async () => {
     if (user?.email) {
@@ -25,20 +23,21 @@ export default function SignInButton() {
     }
     const provider = new GoogleAuthProvider();
     localStorage.setItem("login", "pending");
-    await signInWithRedirect(auth, provider).catch(() => {
+    await signInWithRedirect(auth, provider).catch((error) => {
+      alert(error);
       localStorage.removeItem("login");
     });
   };
 
   return (
     <Button
-      className="hidden flex-row md:flex"
+      className="flex-row md:flex"
       size="lg"
       onClick={onClickHandler}
-      disabled={pendingLogin}
+      disabled={pending}
     >
-      {pendingLogin && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-      {pendingLogin ? "Loading" : user?.email ?? "Sign In with Google"}
+      {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      {pending ? "Loading" : user?.email ?? "Sign In with Google"}
     </Button>
   );
 }
