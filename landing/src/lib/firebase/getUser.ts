@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "./firebase";
 
-export function getUser() {
+export function useGetUser() {
   const [user, setUser] = useState<User>();
   const router = useRouter();
 

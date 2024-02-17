@@ -3,12 +3,12 @@
 import { auth } from "@/lib/firebase/firebase";
 import { Button } from "./ui/button";
 import { GoogleAuthProvider, signInWithRedirect, signOut } from "firebase/auth";
-import { getUser } from "@/lib/firebase/getUser";
+import { useGetUser } from "@/lib/firebase/getUser";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function SignInButton() {
-  const user = getUser();
+  const user = useGetUser();
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
