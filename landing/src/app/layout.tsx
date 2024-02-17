@@ -23,7 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // https://www.reddit.com/r/nextjs/comments/138smpm/how_to_fix_extra_attributes_from_the_server_error/
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "bg-background min-h-screen font-sans antialiased",

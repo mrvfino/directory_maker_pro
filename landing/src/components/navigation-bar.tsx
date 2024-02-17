@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { NavItem } from "@/types";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
+import SignInButton from "./sign-in-button";
 
 interface NavigationBarProps {
   items?: NavItem[];
@@ -30,9 +30,7 @@ export default function NavigationBar({ items }: NavigationBarProps) {
           ))}
         </nav>
       </div>
-      <Button className="hidden md:block " size="lg">
-        Sign In with Google
-      </Button>
+      <SignInButton />
     </div>
   );
 }
