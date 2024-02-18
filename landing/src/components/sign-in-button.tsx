@@ -9,39 +9,51 @@ import { useEffect, useState } from "react";
 
 export default function SignInButton() {
   const user = useGetUser();
-  const [pending, setPending] = useState(true);
-
-  // localStorage.removeItem("login");
+  const [signInPending, setSignInPending] = useState(false);
+  const [hasAuthenticateduser, setHasAuthenticatedUser] = useState<boolean>();
 
   useEffect(() => {
-    if (localStorage) {
-      setPending(!user && localStorage.getItem("login") == "pending");
+    if (typeof window !== undefined) {
+      setHasAuthenticatedUser(
+        localStorage.getItem("hasAuthenticatedUser") === "yes" ?? false,
+      );
     }
-  }, [user]);
+  }, []);
 
   const onClickHandler = async () => {
-    if (user?.email) {
-      localStorage.removeItem("login");
+    if (user) {
       await signOut(auth);
+      localStorage.removeItem("hasAuthenticatedUser");
       return;
     }
     const provider = new GoogleAuthProvider();
-    localStorage.setItem("login", "pending");
-    await signInWithPopup(auth, provider).catch((error) => {
-      alert(error);
-      localStorage.removeItem("login");
-    });
+    try {
+      setSignInPending(true);
+      const result = await signInWithPopup(auth, provider);
+      if (result.user) {
+        localStorage.setItem("hasAuthenticatedUser", "yes");
+        setSignInPending(false);
+      }
+    } catch {
+      setSignInPending(false);
+    }
   };
+
+  const pending =
+    hasAuthenticateduser === undefined ||
+    (hasAuthenticateduser && user === undefined) ||
+    signInPending;
+  const buttonText = user ? user.email : "Sign In & Try!";
 
   return (
     <Button
-      className="flex-row md:flex"
+      className="flex flex-row md:flex"
       size="lg"
       onClick={onClickHandler}
       disabled={pending}
     >
       {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-      {pending ? "Loading" : user?.email ?? "Sign In with Google"}
+      {buttonText}
     </Button>
   );
 }

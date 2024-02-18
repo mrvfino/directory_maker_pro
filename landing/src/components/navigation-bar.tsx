@@ -9,8 +9,8 @@ interface NavigationBarProps {
 
 export default function NavigationBar({ items }: NavigationBarProps) {
   return (
-    <div className="fixed left-0 right-0 top-0 m-8 flex flex-col gap-4 md:flex-row md:justify-between">
-      <div className="flex flex-col gap-4 md:flex-row">
+    <div className="fixed left-0 right-0 top-0 m-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center">
         <h1 className="text-foreground text-center text-3xl font-bold md:text-4xl">
           Directory Maker Pro
         </h1>
@@ -30,7 +30,9 @@ export default function NavigationBar({ items }: NavigationBarProps) {
           ))}
         </nav>
       </div>
-      <SignInButton />
+      <div className="">
+        <SignInButton />
+      </div>
     </div>
   );
 }
