@@ -39,14 +39,6 @@ export default function SignInButton() {
     }
   };
 
-  console.log(
-    "hasAuthenticatedUser == undefined",
-    hasAuthenticateduser === undefined,
-  );
-  console.log(
-    "(hasAuthenticateduser && user === undefined) ",
-    hasAuthenticateduser && user === undefined,
-  );
   const pending =
     hasAuthenticateduser === undefined ||
     (hasAuthenticateduser && user === undefined) ||
