@@ -2,7 +2,7 @@
 
 import { auth } from "@/lib/firebase/firebase";
 import { Button } from "./ui/button";
-import { GoogleAuthProvider, signInWithRedirect, signOut } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { useGetUser } from "@/lib/firebase/getUser";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -11,8 +11,12 @@ export default function SignInButton() {
   const user = useGetUser();
   const [pending, setPending] = useState(true);
 
+  // localStorage.removeItem("login");
+
   useEffect(() => {
-    setPending(!user && localStorage.getItem("login") == "pending");
+    if (localStorage) {
+      setPending(!user && localStorage.getItem("login") == "pending");
+    }
   }, [user]);
 
   const onClickHandler = async () => {
@@ -23,7 +27,7 @@ export default function SignInButton() {
     }
     const provider = new GoogleAuthProvider();
     localStorage.setItem("login", "pending");
-    await signInWithRedirect(auth, provider).catch((error) => {
+    await signInWithPopup(auth, provider).catch((error) => {
       alert(error);
       localStorage.removeItem("login");
     });
