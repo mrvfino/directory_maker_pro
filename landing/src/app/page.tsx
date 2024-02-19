@@ -1,9 +1,10 @@
+import HeroSection from "@/components/hero-section";
+import NavigationBar from "@/components/navigation-bar";
+
 export default function Home() {
   return (
-    <div>
-      <p className="flex h-screen items-center justify-center">
-        {"Content..."}
-      </p>
+    <div className="flex flex-col">
+      <HeroSection />
     </div>
   );
 }
