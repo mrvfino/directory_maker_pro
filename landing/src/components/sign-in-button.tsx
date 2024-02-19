@@ -43,7 +43,11 @@ export default function SignInButton() {
     hasAuthenticateduser === undefined ||
     (hasAuthenticateduser && user === undefined) ||
     signInPending;
-  const buttonText = user ? user.email : "Sign In & Try!";
+  let buttonText = user ? user.email : "Sign In & Try!";
+
+  if (signInPending) {
+    buttonText = "Signing you in...";
+  }
 
   return (
     <Button
