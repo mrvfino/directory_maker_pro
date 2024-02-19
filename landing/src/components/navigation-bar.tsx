@@ -11,7 +11,7 @@ export default function NavigationBar({ items }: NavigationBarProps) {
   return (
     <div className="bg-background m-8 flex flex-col items-center gap-4 md:flex-row md:items-end md:justify-between">
       <div className="flex flex-col justify-center gap-4 md:flex-row md:items-end">
-        <h1 className="text-foreground text-center text-3xl font-extrabold md:text-4xl">
+        <h1 className="text-foreground text-center text-3xl font-medium md:text-4xl">
           Directory Maker Pro
         </h1>
         <nav className="bg-background flex flex-row justify-center gap-6 px-8">
@@ -30,9 +30,9 @@ export default function NavigationBar({ items }: NavigationBarProps) {
           ))}
         </nav>
       </div>
-      <div className="">
+      {/* <div className="">
         <SignInButton />
-      </div>
+      </div> */}
     </div>
   );
 }
