@@ -7,8 +7,8 @@ export const navigationConfig: NavigationConfig = {
       href: "/#pricing",
     },
     {
-      title: "Demo",
-      href: "/#demo",
+      title: "Features",
+      href: "/#features",
     },
     {
       title: "Reviews",
