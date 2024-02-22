@@ -12,7 +12,7 @@ export default function FeaturesSection({}: FeaturesSectionProps) {
     {
       title: "Templates by experts",
       content:
-        "Design is already done on your behalf, so you can focus on content.",
+        "Our templates are already designed with best practices in mind.",
     },
     {
       title: "CMS-free",
@@ -28,7 +28,7 @@ export default function FeaturesSection({}: FeaturesSectionProps) {
 
   return (
     <section className="w flex flex-col items-center p-2">
-      <h1 className="text-center text-2xl font-light md:text-4xl">
+      <h1 className="text-center text-5xl font-light md:text-6xl">
         Main Features
       </h1>
       <p className="text-foreground/50 text-md max-w-2xl p-2 text-center md:text-xl">

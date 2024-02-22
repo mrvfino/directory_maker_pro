@@ -14,9 +14,5 @@ export const navigationConfig: NavigationConfig = {
       title: "Reviews",
       href: "/#community",
     },
-    {
-      title: "FAQs",
-      href: "/#faq",
-    },
   ],
 };

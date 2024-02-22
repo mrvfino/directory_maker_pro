@@ -1,10 +1,4 @@
-import {
-  AlertCircle,
-  CheckCircle2,
-  CircleDot,
-  CircleOff,
-  XCircleIcon,
-} from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -20,31 +14,40 @@ export default function PricingSection({}: PricingSectionProps) {
   const prices = [
     {
       header: "Free",
-      subheader: "No Credit Card Required",
-      positives: ["Basic Templates", "Free hosting", "AI Enabled"],
+      subheader: "No credit card required!",
+      positives: [
+        "Done in 1 minute",
+        "Basic templates",
+        "Free hosting",
+        "AI enabled",
+        "Basic support channel",
+      ],
       negatives: [
         "Under a subdomain",
+        "Limited image support",
         "1 website limit",
         "100 directory item limit",
-        "Not Exportable",
-        "Contains Ads",
+        "Not exportable",
+        "Has ads",
       ],
       price: "$0.00",
     },
     {
       header: "Plus",
-      subheader: "No subscription needed, just pay once per generation.",
+      subheader: "One time payment (per site)",
       positives: [
-        "All Expert Templates",
+        "Done in 1 minute",
+        "Expert templates",
         "Free hosting",
-        "Set A Custom Domain",
-        "No Ads",
-        "AI-Enabled",
-        "Affiliate Program",
-        "Removed Branding",
-        "Self-Hostable",
-        "Exportable",
-        "Support Channel Access",
+        "Custom domain",
+        "Image support",
+        "No ads",
+        "AI-enabled",
+        "Affiliate program",
+        "Removed branding",
+        "Exportable for self-hosting",
+        "Plus support channel",
+        "Liftime updates",
       ],
       negatives: [],
       price: "$200.00",
@@ -53,7 +56,7 @@ export default function PricingSection({}: PricingSectionProps) {
 
   return (
     <section className="w flex flex-col items-center p-2">
-      <h1 className="text-center text-2xl font-light md:text-4xl">Pricing</h1>
+      <h1 className="text-center text-5xl font-light md:text-6xl">Pricing</h1>
       <p className="text-foreground/50 text-md max-w-2xl p-2 text-center md:text-xl">
         Straightforward and transparent.
       </p>
@@ -61,7 +64,7 @@ export default function PricingSection({}: PricingSectionProps) {
         {prices.map((value, index) => (
           <Card
             key={index}
-            className="bg-foreground text-background aspect-video w-72"
+            className="bg-foreground text-background aspect-video w-80"
           >
             <CardHeader>
               <CardTitle>{value.header}</CardTitle>
@@ -82,7 +85,7 @@ export default function PricingSection({}: PricingSectionProps) {
                 ))}
                 {value.negatives.map((value, index) => (
                   <li key={index}>
-                    <div className="flex flex-row items-center gap-2 font-light">
+                    <div className="flex flex-row items-center gap-2 font-light opacity-60">
                       <AlertCircle
                         className="font-bold text-yellow-500"
                         size={18}
