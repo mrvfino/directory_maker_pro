@@ -1,29 +1,50 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import {
+  AlertCircle,
+  CheckCircle2,
+  CircleDot,
+  CircleOff,
+  XCircleIcon,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 
 interface PricingSectionProps {}
 
 export default function PricingSection({}: PricingSectionProps) {
   const prices = [
     {
-      title: "Free",
-      content:
-        "Limited to 15 directory entries, comes with our branding. Not exportable.",
+      header: "Free",
+      subheader: "No Credit Card Required",
+      positives: ["Basic Templates", "Free hosting", "AI Enabled"],
+      negatives: [
+        "1 website limit",
+        "20 directory item limit",
+        "No Eportable",
+        "Contains Ads",
+      ],
       price: "$0.00",
     },
     {
-      title: "One Time Payment",
-      content: "Get up to 1000 directory entries. Exportable & Self-hostable.",
+      header: "Premium",
+      subheader: "No subscription needed, just pay once per generation.",
+      positives: [
+        "All Expert Templates",
+        "Free hosting",
+        "Custom Domain",
+        "Affiliate Program",
+        "Removed Branding",
+        "Self-Hostable",
+        "Exportable",
+        "No Ads",
+      ],
+      negatives: [],
       price: "$100.00",
-    },
-    {
-      title: "Partner",
-      content: "Need something more specific?",
-      price: "",
-    },
-    {
-      title: "PREMIUM",
-      content: "Need something more specific?",
-      price: "",
     },
   ];
 
@@ -33,18 +54,47 @@ export default function PricingSection({}: PricingSectionProps) {
       <p className="text-foreground/50 text-md max-w-2xl p-2 text-center md:text-xl">
         Straightforward and transparent.
       </p>
-      <div className="bg m-4 flex w-screen flex-col items-center gap-4 md:flex-row md:justify-center">
+      <div className="bg m-4 flex w-screen flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
         {prices.map((value, index) => (
           <Card
             key={index}
             className="bg-foreground text-background aspect-video w-72"
           >
             <CardHeader>
-              <CardTitle>{value.title}</CardTitle>
+              <CardTitle>{value.header}</CardTitle>
+              <CardDescription>{value.subheader}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-background/60">{value.content}</p>
+              <ul className="text-sm">
+                {value.positives.map((value, index) => (
+                  <li key={index}>
+                    <div className="flex flex-row items-center gap-2 font-medium">
+                      <CheckCircle2
+                        className="font-bold text-green-500"
+                        size={18}
+                      />
+                      {value}
+                    </div>
+                  </li>
+                ))}
+                {value.negatives.map((value, index) => (
+                  <li key={index}>
+                    <div className="flex flex-row items-center gap-2 font-light">
+                      <AlertCircle
+                        className="font-bold text-yellow-500"
+                        size={18}
+                      />
+                      {value}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
+            <CardFooter>
+              <div className="w-full">
+                <p className="text-center text-2xl">{value.price}</p>
+              </div>
+            </CardFooter>
           </Card>
         ))}
       </div>
