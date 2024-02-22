@@ -73,7 +73,9 @@ export default function ReviewsSection({}: ReviewsSectionProps) {
     <section className="w flex flex-col items-center p-2">
       <h1 className="text-center text-5xl font-light md:text-6xl">Reviews</h1>
       <p className="text-foreground/50 text-md max-w-2xl p-2 text-center md:text-xl">
-        See what our community has to say! (And the stuff they've built us!')
+        {
+          "See what our community has to say! (And the stuff they've built us!')"
+        }
       </p>
       <div className="bg m-4 flex w-screen flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
         <NMasonry numberOfColumns={4}>
