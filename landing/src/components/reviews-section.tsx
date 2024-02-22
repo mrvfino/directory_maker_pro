@@ -90,7 +90,7 @@ export default function ReviewsSection({}: ReviewsSectionProps) {
               </CardContent>
               <CardFooter>
                 <div className="w-full">
-                  <p className="text-center text-2xl">{value.price}</p>
+                  <p className="text-center text-2xl">{}</p>
                 </div>
               </CardFooter>
             </Card>
