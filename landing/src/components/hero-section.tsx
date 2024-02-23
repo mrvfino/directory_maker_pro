@@ -6,30 +6,25 @@ interface HeroSectionProps {}
 
 export default function HeroSection({}: HeroSectionProps) {
   return (
-    <section className="flex flex-col items-center gap-2 p-4 text-center">
-      <h1 className="text-4xl font-extrabold md:pt-8 md:text-6xl">
-        Instantly create a directory website
-      </h1>
-      <p className="text-foreground/50 text-md max-w-3xl p-2 md:text-xl">
-        A tool that gets rid of the frustrating parts fast, so you can engage
-        and provide value to your target audience right away (before others do!)
-        — see the short <span className="underline">demo</span>
-      </p>
-      <div className="flex flex-col justify-center gap-3">
-        <Button variant="outline">Get started for free 🌱</Button>
-        <Button>
-          <p>
-            Get <span className="font-bold text-orange-500">FREE PREMIUM</span>{" "}
-            now! (148 slots left!) 🔥
+    <section className="flex min-h-screen flex-col items-center justify-center gap-2 p-4 text-center">
+      <div className="flex flex-col items-center md:flex-row md:justify-around">
+        <div className="flex flex-col justify-start">
+          <h1 className="text-6xl font-extrabold">
+            Create a Directory Website in Minutes
+          </h1>
+          <p className="text-md max-w-xl font-light md:text-2xl">
+            Directory Maker Pro uses AI to turn your data into a website in just
+            a few clicks. - <span className="underline">see quick demo</span>
           </p>
-        </Button>
+          <Button className="m-4 p-8 text-2xl">Get Started for Free</Button>
+        </div>
+        <Image
+          className="m-8 hidden aspect-video rounded-lg border-2 p-2 md:block"
+          src={HeroImage}
+          alt="hero_image"
+          width={"960"}
+        />
       </div>
-      <Image
-        className="m-4 aspect-video rounded-lg"
-        src={HeroImage}
-        alt="hero_image"
-        width={"960"}
-      />
     </section>
   );
 }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { NavItem } from "@/types";
 import { cn } from "@/lib/utils";
-import SignInButton from "./sign-in-button";
 
 interface NavigationBarProps {
   items?: NavItem[];

@@ -38,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <header>
-            <NavigationBar items={navigationConfig.items} />
+            {/* <NavigationBar items={navigationConfig.items} /> */}
           </header>
           <main>{children}</main>
           <footer>
