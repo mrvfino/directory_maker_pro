@@ -1,40 +1,27 @@
 import { Button } from "./ui/button";
-import NavigationBar from "./navigation-bar";
+import HeroImage from "@/../public/hero-image.jpg";
+import Image from "next/image";
+import HeroArt from "./hero-art";
 
 interface HeroSectionProps {}
 
 export default function HeroSection({}: HeroSectionProps) {
   return (
-    <section className="flex min-h-screen flex-col gap-2 p-4 text-center md:items-center md:justify-center">
-      <h1 className="text-6xl font-bold">
-        Make a Directory Website in Minutes
-      </h1>
-      <p className="text-xl font-thin">
-        Directory Maker Pro uses AI to turn your data into a directory website
-        in just a few clicks. —{" "}
-        <span className="underline">watch 10 second demo</span>
-      </p>
-      <Button className="mt-4 p-8  text-2xl">Get Started for Free</Button>
+    <section className="flex min-h-screen flex-col gap-4 p-4 md:mx-24 md:flex-row">
+      <div className="flex flex-col gap-2 md:w-[50%] md:justify-center">
+        <h1 className="text-6xl font-extrabold">
+          Make a Directory Website in Minutes
+        </h1>
+        <p className="text-xl font-thin">
+          Directory Maker Pro uses AI to turn your data into a directory website
+          in just a few clicks. —{" "}
+          <span className="underline underline-offset-4">
+            watch 10 second demo
+          </span>
+        </p>
+        <Button className="mt-6 p-8 text-2xl">Get Started for Free</Button>
+      </div>
+      <HeroArt />
     </section>
   );
 }
-
-// <div className="">
-//   <div className="md:flex md:flex-col md:items-start md:text-left">
-//     <h1 className="text-6xl font-extrabold md:max-w-3xl">
-//       Create a Directory Website in Minutes
-//     </h1>
-//     <p className="max-w-2xl text-xl font-light md:text-2xl">
-//       A tool that analyzes your spreadsheet data and turns it into a
-//       website in just a few clicks. -{" "}
-//       <span className="underline">see quick demo</span>
-//     </p>
-//     <Button className="mt-4 p-8  text-2xl">Get Started for Free</Button>
-//   </div>
-//   {/* <Image
-//     className="max-w-88 hidden aspect-video p-2 md:block"
-//     src={HeroImage}
-//     alt="hero_image"
-//     width={"960"}
-//   /> */}
-// </div>

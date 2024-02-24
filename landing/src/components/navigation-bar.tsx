@@ -8,7 +8,7 @@ interface NavigationBarProps {
 
 export default function NavigationBar({ items }: NavigationBarProps) {
   return (
-    <div className="bg-background m-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className="m-2 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
       <div className="flex flex-col gap-4 md:flex-row">
         <h1 className="text-foreground text-left text-xl font-medium md:text-4xl">
           Directory Maker Pro
