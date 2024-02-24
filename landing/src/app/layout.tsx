@@ -41,9 +41,7 @@ export default function RootLayout({
             {/* <NavigationBar items={navigationConfig.items} /> */}
           </header>
           <main>{children}</main>
-          <footer>
-            <ModeToggle />
-          </footer>
+          <footer>{/* <ModeToggle /> */}</footer>
         </ThemeProvider>
       </body>
     </html>
