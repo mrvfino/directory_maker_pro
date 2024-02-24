@@ -7,7 +7,7 @@ interface HeroSectionProps {}
 
 export default function HeroSection({}: HeroSectionProps) {
   return (
-    <section className="flex min-h-screen flex-col gap-4 p-4 md:mx-24 md:flex-row">
+    <section className="flex min-h-screen flex-col gap-8 p-4 md:mx-20 md:flex-row">
       <div className="flex flex-col gap-2 md:w-[50%] md:justify-center">
         <h1 className="text-6xl font-extrabold">
           Make a Directory Website in Minutes
@@ -21,7 +21,9 @@ export default function HeroSection({}: HeroSectionProps) {
         </p>
         <Button className="mt-6 p-8 text-2xl">Get Started for Free</Button>
       </div>
-      <HeroArt />
+      <div className="border-border flex flex-col gap-2 border-2 md:w-[50%] md:justify-center">
+        <div className="h-[70%] min-h-96 bg-red-500">hello</div>
+      </div>
     </section>
   );
 }
